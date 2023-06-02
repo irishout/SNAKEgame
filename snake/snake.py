@@ -69,7 +69,9 @@ while gameon:
         #конец игры
         if x < 0 or x > 1000 or y < 0 or y > 650 or len(snake) != len(set(snake)):
             finish = True
-
+            fin_text = font.Font(None, 100).render(('Столкновение! Счёт: ' + str(score)), True, (189, 172, 19))
+            window.blit(fin_text, (100, 300))
+            
         #управление
         keys = key.get_pressed()
         if keys[K_UP]:
@@ -87,8 +89,6 @@ while gameon:
 
         display.update()
         clock.tick(FPS)
+        
 
-    if finish:
-        fin_text = font.Font(None, 100).render(('Столкновение! Счёт: ' + str(score)), True, (189, 172, 19))
-        window.blit(fin_text, (100, 300))
-        display.update()
+
